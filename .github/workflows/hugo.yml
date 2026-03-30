@@ -60,6 +60,19 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
+         - name: CI
+on: push
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # Actions here will run on Node 24
+
 
   # Deployment job
   deploy:
